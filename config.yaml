@@ -1,0 +1,30 @@
+# Global configuration
+server:
+  host: "0.0.0.0"
+  port: 8000
+  recordings_dir: "./recordings"
+
+# Default length for each video clip in seconds
+clip_length: 10
+
+# Camera subscriptions
+cameras:
+  - id: "front-yard"
+    name: "Front Yard Camera"
+    # Using 'dummy' prefix for simulated video in sandbox environment
+    source: "dummy"
+    # To use a real RTSP stream, uncomment and edit:
+    # source: "rtsp://admin:password@192.168.1.100:554/stream1"
+    # Placeholder configurations for future computer vision sentinel process
+    sentinel:
+      enabled: false
+      type: "motion_and_people"
+      confidence_threshold: 0.65
+
+  - id: "backyard"
+    name: "Backyard Camera"
+    source: "dummy"
+    sentinel:
+      enabled: false
+      type: "motion_only"
+      confidence_threshold: 0.50
